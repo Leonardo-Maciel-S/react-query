@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-color: #050505;
+  overflow-x: hidden;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 100px auto;
+}
+
+.app {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app h1 {
+  text-align: center;
+}
