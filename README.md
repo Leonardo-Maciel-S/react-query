@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# React Query
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Projeto utilizado para aplicar os conhecimentos sobre a lib **React Query**.
 
-Currently, two official plugins are available:
+## Instalação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Instalamos utilizando o gerenciador de pacote, no meu caso o **npm**.
+  ```bash
+  npm i @tanstack/react-query
+  ```
 
-## Expanding the ESLint configuration
+## Get Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Primeiro passo é importar o **QueryClientProvider** e o **QueryClient**.
+- Envolvemos nosso componente principal com o QueryClientProvider e passamos um client como props.
+- Esse client é uma instância que criamos com o QueryClient.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  ```typescript
+  import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  const queryClient = new QueryClient();
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+  function App() {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <div className="app">
+          <h1>React Query</h1>
+        </div>
+      </QueryClientProvider>
+    );
+  }
+  ```
