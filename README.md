@@ -37,7 +37,7 @@
 - Para configurar uma requisição utilizamos o **useQuery**.
 - Esse hook recebe um objeto com algumas propriedades que podemos configurar.
 - As configurações obrigatórias são a **queryKey** (array de string que identifica aquela requisição) e **queryFn** (função que interage com a API).
-- E nos retorna alguns estados, os mais famosos são: **data** (dados resposta da requisição), **isPending** (Booleano que indica se a requisição está sendo executada), **isError** (caso retorne algum erro da requisição)
+- E nos retorna um objeto com alguns estados que podemos desestruturar, os mais famosos são: **data** (dados resposta da requisição), **isPending** (Booleano que indica se a requisição está sendo executada), **isError** (caso retorne algum erro da requisição)
 
   ```typescript
   import { useQuery } from "@tanstack/react-query";
