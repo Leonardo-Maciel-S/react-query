@@ -5,12 +5,11 @@ export const useCreatePost = () => {
   const clientQuery = useQueryClient();
 
   const mutate = useMutation({
-    mutationFn: async (body: { title: string; body: string }) => {
-      return api.post("/", body);
+    mutationFn: (body: { title: string; body: string }) => {
+      return api.post("", body);
     },
 
     onSuccess: () => {
-      console.log("success");
       clientQuery.invalidateQueries({
         queryKey: ["posts"],
       });

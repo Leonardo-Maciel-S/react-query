@@ -10,14 +10,15 @@ const NewPost = ({ closeModal }: NewPostProps) => {
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
 
-  const { mutate } = useCreatePost();
+  const { mutate, isSuccess, isError, isPending } = useCreatePost();
 
   const createPost = (e: FormEvent) => {
     e.preventDefault();
 
     mutate({ title, body });
-    closeModal();
   };
+
+  if (isSuccess) closeModal();
 
   return (
     <ContainerNewPost>
@@ -52,8 +53,15 @@ const NewPost = ({ closeModal }: NewPostProps) => {
             Cancelar
           </button>
 
-          <button type="submit">Criar</button>
+          <button type="submit" disabled={isPending}>
+            {isPending ? "Carregando..." : "Criar"}
+          </button>
         </div>
+        {isError && (
+          <p style={{ textAlign: "center", color: "red" }}>
+            Algo deu errado, tente novamente mais tarde...
+          </p>
+        )}
       </form>
     </ContainerNewPost>
   );

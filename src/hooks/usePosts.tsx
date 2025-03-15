@@ -3,7 +3,6 @@ import IPost from "../interfaces/post";
 import { api } from "../axios/axios";
 
 const getPosts = (): Promise<IPost[]> => {
-  console.log("teste");
   return api
     .get("https://jsonplaceholder.typicode.com/posts")
     .then((res) => res.data);
