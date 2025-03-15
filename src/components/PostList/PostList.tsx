@@ -13,7 +13,7 @@ const PostList = () => {
   return (
     <ContainerPostList>
       {data?.map((post) => (
-        <Post title={post.title} body={post.body} />
+        <Post key={post.id} title={post.title} body={post.body} />
       ))}
     </ContainerPostList>
   );
