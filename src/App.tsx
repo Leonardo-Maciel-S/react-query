@@ -6,6 +6,7 @@ function App() {
     <>
       <div className="app">
         <h1>React Query</h1>
+
         <PostList />
       </div>
     </>
